@@ -8,6 +8,10 @@
 
 * [PCW Games](http://www.lysator.liu.se/adventure/machines/Amstrad_PCW.html)
 
+## Screenshots
+
+* [PcW16 Screenshots](http://toastytech.com/guis/pcw.html)
+
 ## Emulators
 
 * [JOYCE](http://www.seasip.demon.co.uk/Unix/Joyce/)
