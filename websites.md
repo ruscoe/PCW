@@ -4,6 +4,10 @@
 
 * [PCW Joyce Computer Club](http://www.fvempel.nl/)
 
+## Software
+
+* [PCW Games](http://www.lysator.liu.se/adventure/machines/Amstrad_PCW.html)
+
 ## Emulators
 
 * [JOYCE](http://www.seasip.demon.co.uk/Unix/Joyce/)
