@@ -1,0 +1,101 @@
+PCW expansion socket pinout
+
+This is a tidied-up version of a document due to R J Touw which has been doing the rounds on various CP/M BBSs.
+
+Name   I/O     Pin     Pin      Name    I/O
+
+NC               1      2       NC              
+GND     O        3      4       GND     O       
++5V     O        5      6       +5V     O       
+NC               7      8       +12V    O       
+A14     I        9      10      A15     I       
+A12     I       11      12      A13     I       
+A10     I       13      14      A11     I       
+A8      I       15      16      A9      I       
+A6      I       17      18      A7      I       
+A4      I       19      20      A5      I       
+A2      I       21      22      A3      I       
+A0      I       23      24      A1      I       
+D6      IO      25      26      D7      IO      
+D4      IO      27      28      D5      IO      
+D2      IO      29      30      D3      IO      
+D0      IO      31      32      D1      IO      
+/RESET  O       33      34      /M1     O       
+/BUSRQ  I       35      36      /INT    I       
+/BUSAK  O       37      38      /WAIT   I       
+/WR     O       39      40      /MREQ   O       
+/RD     O       41      42      /IORQ   O       
+NC              43      44      NSYNC   O
+MDIS    ?       45      46      VIDEO   O
+32MHz   O       47      48      4MHz    O
+GND     O       49      50      GND     O
+NC = No connection GND = Ground / 0 volts +5V = 5 volt supply +12V = 12 volt supply
+A0..A15 address lines
+
+These non-buffered tri-state output pins form the 16 bit address bus for addressing memory or peripheral devices. These lines enter the high impedance state whenever BUSAK is active.
+
+D0..D7 data lines
+
+These non-buffered tri-state input/output pins form the 8 bit data bus. This bus carries the data to be transferred to and from the Z80, the memory and peripheral devices. These lines enter the high impedance state whenever BUSAK is active.
+
+RESET
+
+Amstrad state this is not intended for an input signal - it is used as an output to external peripherals on the Expansion port to be reset at the same time as the rest of the PCW hardware. This is borne out by the fact that the reset output pin on the ULA is directly tied (with no buffers) to this line. Therefore an external RESET command would conflict with the ULA's output. Use very much at your own peril!
+
+M1
+
+This output pin is directly connected to the Z80 Machine Cycle 1 pin. When asserted it indicates that the Z80 is in the opcode fetch cycle, M1. Used by some peripherals for timing.
+
+BUSRQ
+
+This pin is directly connected to the Z80 Bus Request pin. This is used by peripherals to assert BUSRQ to request the Z80 to release control of the address bus, data bus and control bus lines (MREQ, IORQ, RD and WR) and to reply with BUSAK being asserted.
+
+BUSRQ has a higher priority that either INT or NMI, but lower than RESET.
+
+BUSAK
+
+This is directly connected to the Z80 Bus Acknowledge pin. This indicates that the address bus, data bus and control bus (MREQ, IORQ, RD, WR) have entered the high impedance state. This releases CPU control of the buses and makes them available to the peripheral device(s) for data exchange. This state cannot be released by either NMI or INT, only RESET works.
+
+INT
+
+This is directly connected to the Z80 Interrupt pin. This is an active-low interrupt input which can be masked by software. INT has a lower priority than NMI and BUSRQ.
+
+WAIT
+
+This is directly connected to the Z80 Wait pin. This is an active-low input which memory and peripheral devices can assert to increase read or write access time. When WAIT is asserted, the Z80 inserts wait states into the machine cycle until WAIT is released.
+
+WR
+
+This is directly connected to the Z80 Write Strobe pin. This is an active-low output which provides a write timing pulse for memory and peripheral devices. This pin enters the high impedance state when BUSAK is active.
+
+RD
+
+This is directly connected to the Z80 Read Strobe pin. This is an active-low output which provides a read timing pulse for memory and peripheral devices. This pin enters the high impedance state when BUSAK is active.
+
+MREQ
+
+This is directly connected to the Z80 Memory Request pin. This tri-state output pin is asserted to indicate that the information on the address bus is a memory address. This pin goes high impedance whenever BUSAK is active.
+
+IORQ
+
+This is directly connected to the Z80 I/O Request pin. This tri-state output pin is asserted to indicate that the information on the address bus is intended to control the addressing of a peripheral device. IORQ is also asserted during a maskable interrupt service to request the interrupting device to output its interrupt vector on to the data bus. This pin goes high impedance whenever BUSAK is active.
+
+NSYNC
+
+Non-buffered ULA output of negative going Sync. pulses for use by monitors.
+
+VIDEO
+
+Non-buffered ULA output of video information for use by the monitor.
+
+MDIS
+
+Memory Disable. Very little known about this pin (by myself!).
+
+32MHz = 32 MHz Clock
+
+Buffered 32 MHz clock pulses.
+
+4MHz = 4 MHz Clock
+
+Buffered 4 MHz clock pulses (Z80 clock speed).
