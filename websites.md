@@ -4,6 +4,10 @@
 
 * [PCW Joyce Computer Club](http://www.fvempel.nl/)
 
+## Hardware
+
+* [Richard Fairhurst's Amstrad PCW Hardware Reference](http://www.systemed.net/pcw/hardware.html)
+
 ## Software
 
 * [PCW Games](http://www.lysator.liu.se/adventure/machines/Amstrad_PCW.html)
