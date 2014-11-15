@@ -13,6 +13,7 @@
 
 * [Help & Technical Support for Amstrad PCW Word Processors](http://www.luxsoft.demon.co.uk/lux/pcw.html)
 * [PcW16 Screenshots](http://toastytech.com/guis/pcw.html)
+* [Ron's Amstrad PCW Page](https://web.archive.org/web/20110709094402/http://www.king27.freeserve.co.uk/) (via archive.org)
 
 ## Hardware
 
