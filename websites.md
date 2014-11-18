@@ -20,6 +20,10 @@
 
 * [Richard Fairhurst's Amstrad PCW Hardware Reference](http://www.systemed.net/pcw/hardware.html)
 
+## Magazines
+
+* [8000 Plus Magazine scans](https://archive.org/details/8000-plus-magazine)
+
 ## Software
 
 * [cpmtools](http://www.moria.de/~michael/cpmtools/)
